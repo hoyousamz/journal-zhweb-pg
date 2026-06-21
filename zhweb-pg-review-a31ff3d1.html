@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>PG游戏 · 日常查询与对照参考</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f6fbfe;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1d2b3c;
+      padding: 1.5rem 1rem;
+    }
+
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* hero 区 — 日常查询入口感 */
+    .hero {
+      background: linear-gradient(145deg, #e2f0f5 0%, #cde7f0 100%);
+      border-radius: 2.5rem 1rem 2.5rem 1rem;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 18px rgba(30, 115, 130, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #0b3b45;
+      border-left: 5px solid #269fad;
+      padding-left: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 85%;
+      color: #1c4e5a;
+      background: rgba(255,255,255,0.6);
+      padding: 0.8rem 1.2rem;
+      border-radius: 40px 12px 12px 40px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* 网格卡片 — 优势 / 场景区 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.4rem;
+      margin: 2.5rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 1.6rem;
+      padding: 1.5rem 1.2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 0 0 1px #ddeef3 inset;
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(38, 159, 173, 0.12), 0 0 0 1px #98d0db inset;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #146a76;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .card h3::before {
+      content: "▦";
+      color: #3dbfce;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: #2e4b55;
+      font-size: 0.95rem;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #d7f0f5;
+      border-radius: 24px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.75rem;
+      color: #127582;
+      margin-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* 说明区块 — 对照与延伸阅读 */
+    .explain-block {
+      background: #ffffff;
+      border-radius: 2rem 2rem 1rem 1rem;
+      padding: 2rem 1.8rem;
+      margin: 2.2rem 0;
+      border-left: 6px solid #45b7c9;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .explain-block h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #0a505e;
+      margin-bottom: 1rem;
+      border-bottom: 2px dashed #b7dfe9;
+      padding-bottom: 0.4rem;
+    }
+
+    .explain-block p {
+      margin-bottom: 1rem;
+    }
+
+    .explain-block a {
+      color: #1d7e8c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #7fc2d0;
+    }
+
+    .explain-block a:hover {
+      color: #0a4b57;
+      border-bottom: 1px solid #0a4b57;
+    }
+
+    .inline-link-sentence {
+      background: #ecf8fb;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+    }
+
+    /* FAQ 摘要 — 紧凑卡片 */
+    .faq-wrap {
+      background: #f2f9fc;
+      border-radius: 2rem;
+      padding: 1.8rem 1.6rem;
+      margin: 2rem 0;
+    }
+
+    .faq-wrap h2 {
+      font-weight: 500;
+      color: #115b68;
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #c6e3ec;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 550;
+      color: #103f49;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #2c5965;
+      font-size: 0.95rem;
+      padding-left: 0.6rem;
+      border-left: 3px solid #86cddb;
+    }
+
+    .faq-a a {
+      color: #1b7b8a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    /* 底部区块 */
+    .footer-links {
+      margin: 3rem 0 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #cce4ec;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .footer-links span {
+      color: #457a87;
+    }
+
+    .footer-links a {
+      color: #1d6d7b;
+      text-decoration: none;
+      border-bottom: 1px dotted #79bfce;
+    }
+
+    .footer-links a:hover {
+      color: #08434f;
+      border-bottom: 1px solid;
+    }
+
+    .small-note {
+      text-align: center;
+      color: #69939e;
+      font-size: 0.8rem;
+      margin-top: 2rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* 移动端优化 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .hero {
+        padding: 1.8rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero p {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .explain-block {
+        padding: 1.5rem 1rem;
+      }
+      .faq-wrap {
+        padding: 1.2rem 1rem;
+      }
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero 日常查询感 -->
+  <div class="hero">
+    <h1>查询·对照·延伸</h1>
+    <p>从日常检索到功能对比，围绕 <a href="https://zhweb--pg.com" style="color:#0f5f6d; font-weight:600; text-decoration: underline 1px dashed #1e8a9b;">pg游戏</a> 汇集常见信息卡片与快速参考。</p>
+  </div>
+
+  <!-- 优势区 + 场景卡片（网格）-->
+  <div class="grid-cards">
+    <div class="card">
+      <h3>对照参考</h3>
+      <p>版本、机制、界面要素并列对比，省去切换标签页的麻烦。</p>
+      <span class="tag">清单式</span>
+    </div>
+    <div class="card">
+      <h3>日常查询</h3>
+      <p>常见问题、更新日志、关键字段释义 —— 一处检索。</p>
+      <span class="tag">知识库</span>
+    </div>
+    <div class="card">
+      <h3>延伸阅读</h3>
+      <p>关联文档、术语说明、背景介绍，适合深度浏览。</p>
+      <span class="tag">上下文</span>
+    </div>
+    <div class="card">
+      <h3>场景速览</h3>
+      <p>根据功能类型或使用阶段查看对应卡片索引。</p>
+      <span class="tag">筛选</span>
+    </div>
+  </div>
+
+  <!-- 说明区：从查询到延伸阅读的自然承接 -->
+  <div class="explain-block">
+    <h2>从一条查询到一片脉络</h2>
+    <p>许多时候我们打开一个页面，只是想确认某个细节：比如最新状态、类别归属或常用对照。但如果只得到孤立数字，理解往往浮于表面。这就是为什么在 <span class="inline-link-sentence"><a href="https://zhweb--pg.com">pg游戏</a></span> 的页面里，信息被组织成可对照的卡片和段落 —— 方便你从一条查询出发，自然延伸出关联内容。</p>
+    <p>例如当你看到某个功能标签，旁边可能就附有同类对比、版本演变或常见误解。这种结构不是为了填充页面，而是让每一次查阅都成为一次微小的知识连接。你不需要提前记住所有术语，页面本身会提供上下文。</p>
+    <p>另外，FAQ 摘要和底部链接也延续同样思路：不堆砌，而是把高频问题与相关参考放在顺手位置。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-wrap">
+    <h2>常见查询摘要 · FAQ</h2>
+    <div class="faq-item">
+      <span class="faq-q">Q: 哪里可以快速看到基础功能分类？</span>
+      <div class="faq-a">首页网格卡片区域列出了四个常用对照维度，每个卡片展开后包含细分条目。你也可以在 <a href="https://zhweb--pg.com">pg游戏</a> 页面内通过侧边筛选进一步聚焦。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q: 延伸阅读部分与主内容有什么区别？</span>
+      <div class="faq-a">延伸阅读更偏向背景、词条解释和版本差异，适合你在完成日常查询后进一步了解“为什么”或“还有哪些”。</div>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">Q: 移动端查看卡片会变形吗？</span>
+      <div class="faq-a">卡片采用响应式网格，手机屏幕自动变为单列，间距和字体大小也做了适配，可以正常阅读。</div>
+    </div>
+  </div>
+
+  <!-- 底部链接区 -->
+  <div class="footer-links">
+    <span><a href="https://zhweb--pg.com">pg游戏</a></span>
+    <span>· 对照索引 ·</span>
+    <span>常见字段说明</span>
+    <span>· 更新记录</span>
+    <span>· <a href="https://zhweb--pg.com" style="border-bottom: 1px solid;">pg游戏</a></span>
+  </div>
+
+  <div class="small-note">
+    页面内容仅供日常参考与功能对照，不构成操作指引。
+  </div>
+
+</div>
+</body>
+</html>
