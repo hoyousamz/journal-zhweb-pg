@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>九游娱乐 · 稳定入口与平台说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f8fb;
+            color: #1b2f3c;
+            line-height: 1.65;
+            padding: 1.2rem 1rem 2.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 880px;
+            width: 100%;
+        }
+
+        /* header / hero */
+        .hero {
+            background: linear-gradient(145deg, #d9f0f5 0%, #bde3ec 100%);
+            padding: 2rem 1.5rem 2.2rem;
+            border-radius: 28px;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 6px 14px rgba(0, 60, 80, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(50, 180, 180, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0b3540;
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .lead {
+            font-size: 1.1rem;
+            color: #1e4b5a;
+            max-width: 90%;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .lead a {
+            color: #036b7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dashed #5daab6;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .hero .lead a:hover {
+            border-bottom-style: solid;
+            color: #004d5a;
+            border-color: #004d5a;
+        }
+
+        /* 承接段落 —— 叙述稳定入口 */
+        .intro-block {
+            background: white;
+            padding: 1.7rem 1.5rem 1.9rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 40, 50, 0.05);
+            border-left: 5px solid #3fa7b3;
+        }
+
+        .intro-block p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-block .highlight {
+            color: #006f7e;
+            font-weight: 500;
+        }
+
+        /* 特点区域 —— 网格卡片 */
+        .feature-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #12434f;
+            margin-bottom: 1.1rem;
+            padding-left: 0.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 540px) {
+            .grid-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.3rem;
+            box-shadow: 0 3px 10px rgba(0, 55, 70, 0.05);
+            border: 1px solid #e2f0f3;
+            transition: box-shadow 0.25s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(22, 130, 145, 0.10);
+            transform: translateY(-2px);
+        }
+
+        .card .emoji-icon {
+            display: inline-block;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background: #d5eef2;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            border-radius: 18px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f3b45;
+            margin-bottom: 0.4rem;
+            margin-top: 0.2rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2e4e5a;
+            line-height: 1.55;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            background: #e5f4f7;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            margin-bottom: 1.8rem;
+            text-align: left;
+            border: 1px solid #c8e2e8;
+        }
+
+        .closing p {
+            margin-bottom: 0.8rem;
+            color: #173b44;
+            font-size: 1rem;
+        }
+
+        .closing p:last-child {
+            margin-bottom: 0;
+        }
+
+        .closing a {
+            color: #006372;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dotted #4e9caa;
+        }
+
+        .closing a:hover {
+            border-bottom-style: solid;
+            color: #003e4a;
+        }
+
+        /* FAQ 摘要 */
+        .faq-brief {
+            background: white;
+            border-radius: 24px;
+            padding: 1.6rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 8px rgba(0, 45, 55, 0.04);
+            border: 1px solid #d7e9ee;
+        }
+
+        .faq-brief h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0c3844;
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            min-width: 5.2rem;
+            font-weight: 500;
+            color: #127282;
+            background: #e7f3f6;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .faq-a {
+            color: #214f5c;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .faq-a a {
+            color: #006f7e;
+            text-decoration: underline dotted #5ba2ae;
+        }
+
+        .faq-a a:hover {
+            text-decoration: underline solid;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #c8e0e6;
+            margin: 1.8rem 0 1.2rem;
+            opacity: 0.5;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #587a84;
+            padding: 0.8rem 0 0.2rem;
+        }
+
+        /* 通用链接 */
+        a {
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero .lead {
+                max-width: 100%;
+            }
+            .grid-cards {
+                gap: 0.9rem;
+            }
+            .card {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero / 开场短句 -->
+    <div class="hero">
+        <h1>稳定入口 · 简明指引</h1>
+        <div class="lead">
+            每一个值得长期依赖的平台，都需要一个清晰、可靠的起点。<br>
+            对于熟悉 <a href="https://officialindex-jiuyou.com">九游娱乐</a> 的用户而言，直达路径本身也是一种信任锚点。
+        </div>
+    </div>
+
+    <!-- 承接段落：从稳定入口和页面说明展开 -->
+    <div class="intro-block">
+        <p>
+            <span class="highlight">九游娱乐</span> 自推出以来，一直将服务稳定性与信息透明视为基础。
+            在实际使用中，用户常常需要快速确认当前页面是否为最新、最直接的渠道。
+            本页作为一份静态说明，旨在从结构层面梳理平台的核心特征与访问逻辑，
+            避免因链接分散或信息过时造成不必要的困扰。
+        </p>
+        <p>
+            以下内容不替代官方公告，也不充当聚合入口，仅从页面设计的角度，
+            帮助新老用户理解 <a href="https://officialindex-jiuyou.com">九游娱乐</a> 在功能定位、内容呈现与操作引导上的惯常做法。
+            若您希望了解具体服务细则，建议直接查阅平台内公示信息。
+        </p>
+    </div>
+
+    <!-- 特点列表：网格卡片 -->
+    <div class="feature-section">
+        <h2>平台特点一览</h2>
+        <div class="grid-cards">
+            <div class="card">
+                <div class="emoji-icon">🧭</div>
+                <h3>路径直观</h3>
+                <p>从首页到各功能模块，导航层级控制在三层以内，减少中途跳转带来的迷失感。核心操作均可通过固定入口完成。</p>
+            </div>
+            <div class="card">
+                <div class="emoji-icon">🛡️</div>
+                <h3>信息自洽</h3>
+                <p>页面说明与平台实际规则保持一致，避免模糊措辞。重要提示通常以静态页面或公告形式留存，方便回溯核对。</p>
+            </div>
+            <div class="card">
+                <div class="emoji-icon">📐</div>
+                <h3>适配多端</h3>
+                <p>移动端与桌面端采用同一套内容结构，仅版式响应调整。无论使用何种设备，关键信息和链接位置均无遗漏。</p>
+            </div>
+            <div class="card">
+                <div class="emoji-icon">🔗</div>
+                <h3>引用清晰</h3>
+                <p>外部跳转或内部关联均标注明确，不隐藏链接、不混淆来源。例如本页中所有指向 <a href="https://officialindex-jiuyou.com">九游娱乐</a> 的引用均直接可辨。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-brief">
+        <h3>常见疑问 · 摘要</h3>
+        <div class="faq-item">
+            <span class="faq-q">如何确认当前页面可信？</span>
+            <span class="faq-a">建议核对浏览器地址栏域名是否为 <code>officialindex-jiuyou.com</code>，并留意页面底部的版本或更新说明。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">页面打不开怎么办？</span>
+            <span class="faq-a">可尝试刷新或切换网络环境；若持续不可用，请通过历史记录或可信渠道重新定位 <a href="https://officialindex-jiuyou.com">九游娱乐</a> 的正确路径。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">本页与平台是什么关系？</span>
+            <span class="faq-a">本页为独立编写的介绍说明，旨在辅助理解，不取代官方首页。所有引用链接均指向官方域名。</span>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>
+            一个平台的长期价值，往往体现在那些不起眼的稳定细节里——清晰的入口、一致的表述、克制的引导。
+            对于 <a href="https://officialindex-jiuyou.com">九游娱乐</a> 来说，本页所呈现的也仅是其中一角。
+        </p>
+        <p>
+            如果您希望进一步了解或使用服务，直接通过上方链接到达主页是最简洁的方式。
+            任何时候，保持对信息来源的审慎，都是值得养成的习惯。
+        </p>
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        页面说明 · 内容基于公开信息整理 &nbsp;|&nbsp; 非官方替代页面
+    </div>
+</div>
+</body>
+</html>
